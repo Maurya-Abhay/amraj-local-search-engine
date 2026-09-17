@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" preserveAspectRatio="xMidYMid slice">
+  <rect width="1200" height="630" fill="#241f18"/>
+  <rect x="60" y="60" width="1080" height="510" rx="24" fill="none" stroke="rgba(246,241,231,0.16)" stroke-width="2"/>
+  <text x="80" y="230" fill="#f6f1e7" font-family="Georgia, 'Times New Roman', serif" font-size="76" font-weight="600">AMRAJ</text>
+  <text x="80" y="320" fill="#e79c6f" font-family="Arial, sans-serif" font-size="32" font-weight="600">Local search and business directory</text>
+  <text x="80" y="400" fill="#b6c47e" font-family="Arial, sans-serif" font-size="22" font-weight="500">Find verified shops, services and businesses in one place.</text>
+  <g transform="translate(80, 480)">
+    <path d="M0 -20c-11.5 0-21 9.3-21 20.8C-21 16.2 0 40 0 40s21-23.8 21-39.2C21-10.7 11.5-20 0-20z" fill="#b5502f"/>
+    <circle cx="0" cy="-8" r="8" fill="#f6f1e7"/>
+  </g>
+</svg>

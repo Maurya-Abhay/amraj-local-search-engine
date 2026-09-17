@@ -1,0 +1,24 @@
+# AMRAJ — deployment hardening
+# Applies to the document root (repo root locally, htdocs/ on the server).
+
+DirectoryIndex index.php index.html
+
+# Never expose the .env file (DB + ImageKit credentials) over HTTP.
+<FilesMatch "^\.env">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Serve .svg/.webp/.woff2 with sensible caching.
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/svg+xml "access plus 30 days"
+    ExpiresByType image/webp "access plus 30 days"
+    ExpiresByType text/css "access plus 7 days"
+    ExpiresByType application/javascript "access plus 7 days"
+</IfModule>

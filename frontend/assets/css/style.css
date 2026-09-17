@@ -1,0 +1,113 @@
+/* =========================================================================
+   AMRAJ Design System
+   One shared source of truth for spacing, typography and component styles
+   so every page (public, admin, owner, user) looks and feels consistent.
+   ========================================================================= */
+
+:root {
+    /* Type scale */
+    --amraj-font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --amraj-font-serif: 'Fraunces', ui-serif, Georgia, serif;
+
+    /* Font weights — use these consistently instead of mixing font-bold/font-black ad-hoc */
+    --amraj-weight-body: 400;
+    --amraj-weight-heading: 500;
+    --amraj-weight-label: 600;
+
+    /* Spacing scale (used for section padding across all pages) */
+    --amraj-space-section-y: 4rem;
+    --amraj-space-card-p: 1.5rem;
+
+    /* Radii + shadows kept identical across cards site-wide */
+    --amraj-radius-card: 0.5rem;
+    --amraj-radius-pill: 999px;
+    --amraj-shadow-card: 0 1px 2px rgba(36, 31, 24, 0.06), 0 1px 0 rgba(36, 31, 24, 0.05);
+    --amraj-shadow-card-hover: 0 6px 20px -8px rgba(181, 80, 47, 0.18);
+
+    --amraj-brand-terracotta: #b5502f;
+    --amraj-brand-olive: #5c6b3f;
+    --amraj-ink: #241f18;
+    --amraj-paper: #f6f1e7;
+}
+
+html {
+    font-family: var(--amraj-font-sans);
+}
+
+body {
+    font-weight: var(--amraj-weight-body);
+}
+
+/* Headings use the serif display face everywhere — this single rule is what
+   gives every page (public, admin, owner, user) the same hand-set, editorial
+   feel instead of the generic bold-sans-everywhere SaaS look. */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--amraj-font-serif);
+    font-weight: var(--amraj-weight-heading);
+    letter-spacing: -0.01em;
+}
+
+/* Mobile bleed fix (was duplicated per-page, now defined once) */
+@media (max-width: 640px) {
+    html, body { padding: 0; margin: 0; overflow-x: hidden; }
+    .mobile-tight { padding-left: 0.5rem !important; padding-right: 0.5rem !important; }
+    nav, main, footer { width: 100%; box-sizing: border-box; }
+}
+
+/* Shared card / surface treatments (previously copy-pasted inline per page) */
+.amraj-card {
+    border-radius: var(--amraj-radius-card);
+    box-shadow: var(--amraj-shadow-card);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.amraj-card:hover {
+    box-shadow: var(--amraj-shadow-card-hover);
+    transform: translateY(-4px);
+}
+
+/* Was a blurred glass panel — now a plain warm card, no backdrop-filter.
+   Kept the class name so no markup had to change. */
+.glass-hero-card {
+    background: var(--amraj-paper);
+    border: 1px solid rgba(36, 31, 24, 0.12);
+}
+.dark .glass-hero-card {
+    background: #1f1a13;
+    border: 1px solid rgba(246, 241, 231, 0.1);
+}
+
+.premium-glow-card:hover {
+    box-shadow: var(--amraj-shadow-card-hover);
+    transform: translateY(-3px);
+}
+.dark .premium-glow-card:hover {
+    box-shadow: 0 6px 20px -8px rgba(226, 121, 79, 0.14);
+    transform: translateY(-3px);
+}
+
+/* Kept as a solid brand fill rather than a rainbow gradient. */
+.custom-gradient-bg {
+    background: var(--amraj-brand-terracotta);
+}
+
+/* Consistent focus states for accessibility across every form input site-wide */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--amraj-brand-terracotta);
+    outline-offset: 2px;
+}
+
+/* Skeleton loading state, used while dashboards fetch data */
+.amraj-skeleton {
+    background: linear-gradient(90deg, rgba(91,83,70,0.12) 25%, rgba(91,83,70,0.22) 37%, rgba(91,83,70,0.12) 63%);
+    background-size: 400% 100%;
+    animation: amraj-skeleton-loading 1.4s ease infinite;
+}
+@keyframes amraj-skeleton-loading {
+    0% { background-position: 100% 50%; }
+    100% { background-position: 0 50%; }
+}

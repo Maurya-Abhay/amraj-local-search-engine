@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "updated_at": "2026-09-11T11:32:24+02:00",
+    "banners": [
+        {
+            "id": "banner_6aa3ca8196d30980695627",
+            "title": "Main Banner",
+            "text": "AMRAJ HUB par apni shop register karein aur customers tak turant pahunchein!",
+            "status": "active",
+            "start_at": "2026-09-11T15:02",
+            "end_at": "2026-09-12T15:02",
+            "priority": 1
+        }
+    ]
+}
